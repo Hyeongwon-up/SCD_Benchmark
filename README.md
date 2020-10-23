@@ -1,53 +1,46 @@
 # SCD_Benchmark
 
-전체 데이터 개수 : 10726
 
-Error.csv
-: GumTree 와 ChangeDistiller 의 툴을 사요하여 검출할 때 오류가 생기는 파일을 DB에 저장.
+## SourceCode Differencing techniques (GumTree, ChangeDistiller)이 생성한 출력 내용.
 
-에러가 발생했던 데이터 개수 : 18
+Apache Commons Lang(LANG), Math(MATH), Collections(COLLECTIONS), Apache Ivy(IVY) 에 식별기법을 적용하여 얻은  출력 파일. (CTET 모델)
+Header : fileId, tool, change_type, entity_type, edit
 
++ 전체.csv
 
-비교에 사용한 데이터 개수: 10709
+위 데이터에서 GumTree 만을 검출.
 
-전체 파일 개수 
++ GUMTREE.csv
 
+위 데이터에서 ChangeDistiller 만을 검출.
 
-1. fileId ,change_type ,entity type
-    GumTree != CHD 10636
-
-2. fileId, Change type 별 edit 수 비교
-
-    GumTree != CHD : 10517
-
-3. fileId 별 edit 수 비교.
-
-    GumTree != CHD  : 9830
-    
-    
-
-DISTINCTTABLE.csv
-
-: fileId별로 GT와 CHD 의 개수가 다른 fileId 항목.
-
-RANDOM_EXPORT.ipynb
-:DISTINCTTABLE 로 부터 읽어와서 RANDOM으로 fileId100개 뽑아 LIST.csv 로 저장한다.
-
-LIST.csv 
-: 위에서 추출한 추출 한 목록.
++ Changedistiller.csv
 
 
-예측_분석_비교.excel
-: 랜덤으로 뽑은 100개를 직접 파일을 old와 new로 비교하여서 프로그래머 관점으로 변화를 파악하고
- GT 와 CHD 파일 과 출력을 비교할 수있다.
- 
- 
- 
-    
-    
-    
+## 오로지 변경사항의 수만을 GT와 CD 비교결과 내용. ( 2.3 세번째 결과 및 3 의 샘플링을 하기 위한 파일)
 
- 
-    
+Main_work sheet : 각 파일의 변경사항의 수를 Count 하고 이를 정리한 시트.
+1.GT>CD sheet :  GumTree 변경사항의 수가 ChangeDistiller 보다 큰 파일 정리.
+2.GT<CD sheet :  GumTree 변경사항의 수가 ChangeDistiller 보다 작은 파일 정리.
+3.GT=CD sheet :  GumTree 변경사항의 수가 ChangeDistiller 와 같은 파일  정리.
+
++ CompCount_GT_CD.xlsx
+
+## 변경사항의 수가 5 개 이하인 파일을 필터링(filtering)을 하여 3,808 개의 파일.
+Header: fileId
++ TESTLIST.csv
+
+## 3,808 파일 중 랜덤으로 100개의 파일.
+
++ LIST.CSV
+
+## 100개의 파일을 사람이 예측한 변경내용과 기법이 출력한 변경내용을 비교 한 파일.
+
+사람 sheet : 사람이 예측한 변경내역
+도구 sheet : 100개의 파일에 대한 기법이 출력한 변경내역
+비교 sheet : 사람과 도구의 비교 ( tool 1 : GumTree, tool 2 : ChangeDistiller, Tool 3 : 사람)
+
+
+
 
 
