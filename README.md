@@ -59,6 +59,9 @@ Header: fileId
 
 비교 sheet : 사람과 도구의 비교 ( tool 1 : GumTree, tool 2 : ChangeDistiller, Tool 3 : 사람)
 
++ Compare_Human_technique.xlsx
+
+
 
 
 
